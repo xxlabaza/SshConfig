@@ -9,19 +9,26 @@ on:
       - '*'
 
 jobs:
-  build:
-    name: Swift ${{ matrix.swift }} on ${{ matrix.os }}
+  test_macOS:
+    name: Swift tests on the latest MacOS
+    runs-on: macos-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: Build
+      run: swift build
+    - name: Run tests
+      run: swift test
+
+  test_linux:
+    name: Swift tests on the latest Ubuntu (${{ matrix.image }})
     strategy:
       matrix:
-        os: [ubuntu-latest, macos-latest]
-        swift: ["5.1", "5.2", "5.3", "5.4"]
-    runs-on: ${{ matrix.os }}
+        image: ["swift:5.1", "swift:5.2", "swift:5.3", "swift:5.4"]
+    runs-on: ubuntu-latest
+    container: ${{ matrix.image }}
     steps:
-      - uses: fwal/setup-swift@v1
-        with:
-          swift-version: ${{ matrix.swift }}
-      - uses: actions/checkout@v2
-      - name: Build
-        run: swift build
-      - name: Run tests
-        run: swift test
+    - uses: actions/checkout@v2
+    - name: Build
+      run: swift build
+    - name: Run tests
+      run: swift test
