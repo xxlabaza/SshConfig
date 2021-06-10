@@ -1,0 +1,27 @@
+name: SshConfig tests
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - '*'
+
+jobs:
+  build:
+    name: Swift ${{ matrix.swift }} on ${{ matrix.os }}
+    strategy:
+      matrix:
+        os: [ubuntu-latest, macos-latest]
+        swift: ["5.1", "5.2", "5.3", "5.4"]
+    runs-on: ${{ matrix.os }}
+    steps:
+      - uses: fwal/setup-swift@v1
+        with:
+          swift-version: ${{ matrix.swift }}
+      - uses: actions/checkout@v2
+      - name: Build
+        run: swift build
+      - name: Run tests
+        run: swift test
