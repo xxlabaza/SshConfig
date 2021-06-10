@@ -1,3 +1,7 @@
+![Platform](https://img.shields.io/badge/platforms-iOS%20%7C%20macOS%20%7C%20tvOS%20%7C%20watchOS%20%7C%20Linux-333333.svg)
+[![GitHub license](https://img.shields.io/github/license/xxlabaza/SshConfig)](https://github.com/xxlabaza/SshConfig/blob/main/LICENSE.txt)
+[![Build Status](https://github.com/xxlabaza/SshConfig/actions/workflows/tests.yml/badge.svg)](https://github.com/xxlabaza/SshConfig/actions)
+
 # SshConfig
 
 The SshConfig makes it quick and easy to load, parse, and decode/encode the SSH configs. It also helps to resolve the properties by hostname and use them safely in your apps (thanks for Optional and static types in Swift).
