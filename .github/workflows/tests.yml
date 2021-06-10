@@ -10,7 +10,7 @@ on:
 
 jobs:
   test_macOS:
-    name: Swift tests on the latest MacOS
+    name: Tests on the MacOS
     runs-on: macos-latest
     steps:
     - uses: actions/checkout@v2
@@ -20,7 +20,7 @@ jobs:
       run: swift test
 
   test_linux:
-    name: Swift tests on the latest Ubuntu (${{ matrix.image }})
+    name: Tests with ${{ matrix.image }} on the Ubuntu
     strategy:
       matrix:
         image: ["swift:5.1", "swift:5.2", "swift:5.3", "swift:5.4"]
