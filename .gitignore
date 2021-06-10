@@ -1,0 +1,13 @@
+.DS_Store
+.podspecs
+.swiftpm/xcode/package.xcworkspace/contents.xcworkspacedata
+*.pem
+/.build
+/.swiftpm
+/*.xcodeproj
+/docs
+/Packages
+DerivedData/
+Package.pins
+Package.resolved
+xcuserdata/
