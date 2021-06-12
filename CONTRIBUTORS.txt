@@ -11,4 +11,4 @@ needs to be listed here.
 
 ### Contributors
 
-- Artem Labazin <artem@labazin.com>
+- Artem Labazin <xxlabaza@gmail.com>
