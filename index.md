@@ -399,6 +399,8 @@ assert(config.hosts[0].properties.port == 2021)
 
 #### EmptyKeyToken
 
+This error could be thrown by `ssh.ConfigParser`s if there was an empty string for an expected key token (`Host` or property name).
+
 ```swift
 let content = """
 Host myserv
@@ -417,6 +419,8 @@ assert(errorCatched)
 
 #### EmptyValueToken
 
+This error could be thrown by `ssh.ConfigParser`s if there was an empty string for an expected value token (host's alias or property value).
+
 ```swift
 let content = """
 Host myserv
@@ -433,6 +437,8 @@ assert(errorCatched)
 ```
 
 #### IllegalTokensDelimiter
+
+Found an invalid **delimiter** character **after** a token.
 
 ```swift
 let content = """
@@ -453,6 +459,8 @@ assert(errorCatched)
 
 #### UnexpectedToken
 
+A **token** is in an unexpected place.
+
 ```swift
 let content = """
 host
@@ -470,6 +478,8 @@ assert(errorCatched)
 
 #### NoAliasForHost
 
+There is no alias for parsing `Host` config's section.
+
 ```swift
 let content = """
 Host " "
@@ -486,6 +496,8 @@ assert(errorCatched)
 
 #### NoPropertiesForHost
 
+A `Host` config section doesn't have any property inside.
+
 ```swift
 let content = """
 Host myserv
@@ -501,6 +513,8 @@ assert(errorCatched)
 ```
 
 #### UnableToDecode
+
+An attempt was made to decode a **value** by **path** as type.
 
 ```swift
 let content = """
@@ -522,6 +536,8 @@ assert(errorCatched)
 
 #### UnableToLoad
 
+Can't load a config by **path** because of **cause**.
+
 ```swift
 var errorCatched = false
 do {
@@ -538,6 +554,8 @@ assert(errorCatched)
 ```
 
 #### UnableToDump
+
+Can't dump a config by **path** because of **cause**.
 
 ```swift
 let config = ssh.Config()
