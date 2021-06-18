@@ -11,22 +11,22 @@ The SshConfig makes it quick and easy to load, parse, and decode/encode the SSH 
   - [Carthage](#carthage)
   - [CocoaPods](#cocoapods)
 - [Usage](#usage)
-- [Parsing](#parsing)
-- [Decoding](#decoding)
-- [Encoding](#encoding)
-- [Resolving](#resolving)
+  - [Parsing](#parsing)
+  - [Decoding](#decoding)
+  - [Encoding](#encoding)
+  - [Resolving](#resolving)
 - [Dump and Load](#dump-and-load)
 - [JSON](#json)
 - [Errors](#errors)
-  - [EmptyKeyToken](#emptyKeyToken)
-  - [EmptyValueToken](#emptyValueToken)
-  - [IllegalTokensDelimiter](#illegalTokensDelimiter)
-  - [UnexpectedToken](#unexpectedToken)
-  - [NoAliasForHost](#noAliasForHost)
-  - [NoPropertiesForHost](#noPropertiesForHost)
-  - [UnableToDecode](#unableToDecode)
-  - [UnableToLoad](#unableToLoad)
-  - [UnableToDump](#unableToDump)
+  - [EmptyKeyToken](#emptykeytoken)
+  - [EmptyValueToken](#emptyvaluetoken)
+  - [IllegalTokensDelimiter](#illegaltokensdelimiter)
+  - [UnexpectedToken](#unexpectedtoken)
+  - [NoAliasForHost](#noaliasforhost)
+  - [NoPropertiesForHost](#nopropertiesforhost)
+  - [UnableToDecode](#unabletodecode)
+  - [UnableToLoad](#unabletoload)
+  - [UnableToDump](#unabletodump)
 
 ### Features
 
@@ -159,7 +159,7 @@ let config = ssh.Config(
 
 More code samples and examples are available in the tests (especially in [UsageExample.swift](https://github.com/xxlabaza/SshConfig/blob/master/Tests/SshConfigTests/UsageExample.swift) file).
 
-### Parsing
+#### Parsing
 
 ```swift
 let content = """
@@ -178,7 +178,7 @@ assert(properties["user"] == ["alice"])
 assert(properties["port"] == ["2021"])
 ```
 
-### Decoding
+#### Decoding
 
 ```swift
 let content = """
@@ -211,7 +211,7 @@ assert(config.hosts[0].alias == "myserv")
 assert(config.hosts[0].properties.port == 2021)
 ```
 
-### Encoding
+#### Encoding
 
 ```swift
 let config = ssh.Config(
@@ -243,6 +243,40 @@ assert(string == """
 Host myserv
   Port 15
 """)
+```
+
+#### Resolving
+
+```swift
+let config = ssh.Config(
+  ssh.Host("github.com gitlab.com",
+    { $0.user = "xxlabaza" }
+  ),
+  ssh.Host("my*",
+    { $0.user = "admin" },
+    { $0.port = 56 }
+  ),
+  ssh.Host("*",
+    { $0.user = "artem" },
+    { $0.port = 2020 }
+  )
+)
+
+let github = config.resolve(for: "github.com")
+assert(github.user == "xxlabaza")
+assert(github.port == 2020)
+
+let gitlab = config.resolve(for: "gitlab.com")
+assert(gitlab.user == "xxlabaza")
+assert(gitlab.port == 2020)
+
+let myserv = config.resolve(for: "myserv")
+assert(myserv.user == "admin")
+assert(myserv.port == 56)
+
+let example = config.resolve(for: "example.com")
+assert(example.user == "artem")
+assert(example.port == 2020)
 ```
 
 ### Dump and Load
@@ -282,40 +316,6 @@ let config = try! ssh.Config.load(path: "~/my-ssh-config")
 assert(config.hosts.count == 1)
 assert(config.hosts[0].alias == "myserv")
 assert(config.hosts[0].properties.port == 2021)
-```
-
-### Resolving
-
-```swift
-let config = ssh.Config(
-  ssh.Host("github.com gitlab.com",
-    { $0.user = "xxlabaza" }
-  ),
-  ssh.Host("my*",
-    { $0.user = "admin" },
-    { $0.port = 56 }
-  ),
-  ssh.Host("*",
-    { $0.user = "artem" },
-    { $0.port = 2020 }
-  )
-)
-
-let github = config.resolve(for: "github.com")
-assert(github.user == "xxlabaza")
-assert(github.port == 2020)
-
-let gitlab = config.resolve(for: "gitlab.com")
-assert(gitlab.user == "xxlabaza")
-assert(gitlab.port == 2020)
-
-let myserv = config.resolve(for: "myserv")
-assert(myserv.user == "admin")
-assert(myserv.port == 56)
-
-let example = config.resolve(for: "example.com")
-assert(example.user == "artem")
-assert(example.port == 2020)
 ```
 
 ### JSON
