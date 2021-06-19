@@ -13,7 +13,6 @@ The SshConfig makes it quick and easy to load, parse, and decode/encode the SSH 
 - [Installation](#installation)
   - [Requirements](#requirements)
   - [Swift Package Manager](#swift-package-manager)
-  - [Carthage](#carthage)
   - [CocoaPods](#cocoapods)
 - [Changelog](#changelog)
 - [Contributing](#contributing)
@@ -120,7 +119,7 @@ Swift 5.1+
 [Swift Package Manager](https://swift.org/package-manager/) - **is the recommended installation method**. All you need is to add the following as a dependency to your `Package.swift` file:
 
 ```swift
-.package(url: "https://github.com/xxlabaza/SshConfig.git", from: "1.0.0"),
+.package(url: "https://github.com/xxlabaza/SshConfig.git", from: "1.0.1"),
 ```
 
 So, your `Package.swift` may look like below:
@@ -136,7 +135,7 @@ let package = Package(
     .library(name: "MyPackage", targets: ["MyPackage"]),
   ],
   dependencies: [
-    .package(url: "https://github.com/xxlabaza/SshConfig.git", from: "1.0.0"),
+    .package(url: "https://github.com/xxlabaza/SshConfig.git", from: "1.0.1"),
   ],
   targets: [
     .target(name: "MyPackage", dependencies: ["SshConfig"])
@@ -144,13 +143,31 @@ let package = Package(
 )
 ```
 
-### Carthage
+And then import wherever needed:
 
-**TODO**...
+```swift
+import SshConfig
+```
 
 ### CocoaPods
 
-**TODO**...
+[CocoaPods](https://cocoapods.org/) is a dependency manager for Cocoa projects. For usage and installation instructions, visit their website. To integrate SshConfig into your Xcode project using CocoaPods, specify it in your Podfile:
+
+```
+pod 'SshConfig'
+```
+
+And then run:
+
+```
+pod install
+```
+
+After installing the cocoapod into your project import SshConfig with:
+
+```swift
+import SshConfig
+```
 
 ## Changelog
 
