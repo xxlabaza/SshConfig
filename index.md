@@ -8,7 +8,6 @@ The SshConfig makes it quick and easy to load, parse, and decode/encode the SSH 
 - [Installation](#installation)
   - [Requirements](#requirements)
   - [Swift Package Manager](#swift-package-manager)
-  - [Carthage](#carthage)
   - [CocoaPods](#cocoapods)
 - [Usage](#usage)
   - [Parsing](#parsing)
@@ -76,13 +75,31 @@ let package = Package(
 )
 ```
 
-##### Carthage
+And then import wherever needed:
 
-**TODO**...
+```swift
+import SshConfig
+```
 
-##### CocoaPods
+### CocoaPods
 
-**TODO**...
+[CocoaPods](https://cocoapods.org/) is a dependency manager for Cocoa projects. For usage and installation instructions, visit their website. To integrate SshConfig into your Xcode project using CocoaPods, specify it in your Podfile:
+
+```
+pod 'SshConfig'
+```
+
+And then run:
+
+```
+pod install
+```
+
+After installing the cocoapod into your project import SshConfig with:
+
+```swift
+import SshConfig
+```
 
 ### Usage
 
