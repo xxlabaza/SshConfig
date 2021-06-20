@@ -131,6 +131,12 @@ import PackageDescription
 
 let package = Package(
   name: "MyPackage",
+  platforms: [ // The SshConfig requires the versions below as a minimum.
+    .iOS(.v13),
+    .watchOS(.v6),
+    .tvOS(.v13),
+    .macOS(.v10_15),
+  ],
   products: [
     .library(name: "MyPackage", targets: ["MyPackage"]),
   ],
