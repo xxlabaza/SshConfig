@@ -15,7 +15,7 @@ github:
   username: xxlabaza
 
 markdown: kramdown
-theme: jekyll-theme-modernist
+theme: jekyll-theme-midnight
 toc: true
 sass:
   style: compressed
