@@ -52,7 +52,7 @@ Code example:
 ```swift
 import SshConfig
 
-let config = ssh.Config.load(path: "~/.ssh/config")
+let config = try! ssh.Config.load(path: "~/.ssh/config")
 
 let github = config.resolve(for: "github.com")
 assert(github.preferredAuthentications == [.publickey])
@@ -167,6 +167,22 @@ And then run:
 
 ```
 pod install
+```
+
+Eventually, your **Podfile** should look like this one:
+
+```
+# The SshConfig requires the versions below as a minimum.
+# platform :ios, '13.0'
+platform :osx, '10.15'
+# platform :tvos, '13.0'
+# platform :watchos, '6.0'
+
+target 'MyApp' do
+  use_frameworks!
+
+  pod 'SshConfig'
+end
 ```
 
 After installing the cocoapod into your project import SshConfig with:
