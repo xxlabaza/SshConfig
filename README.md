@@ -1,6 +1,11 @@
 ![Platform](https://img.shields.io/badge/platforms-iOS%20%7C%20macOS%20%7C%20tvOS%20%7C%20watchOS%20%7C%20Linux-333333.svg)
+[![Swift](https://img.shields.io/badge/Swift-5.1_5.2_5.3_5.4-green)](https://img.shields.io/badge/Swift-5.1_5.2_5.3_5.4-green)
 [![GitHub license](https://img.shields.io/github/license/xxlabaza/SshConfig)](https://github.com/xxlabaza/SshConfig/blob/main/LICENSE.txt)
+
 [![Build Status](https://github.com/xxlabaza/SshConfig/actions/workflows/tests.yml/badge.svg)](https://github.com/xxlabaza/SshConfig/actions)
+
+[![CocoaPods Compatible](https://img.shields.io/cocoapods/v/SshConfig.svg)](https://img.shields.io/cocoapods/v/SshConfig.svg)
+[![Swift Package Manager](https://img.shields.io/badge/Swift_Package_Manager-compatible-green)](https://img.shields.io/badge/Swift_Package_Manager-compatible-green)
 
 # SshConfig
 
