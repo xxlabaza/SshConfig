@@ -14,7 +14,7 @@ twitter:
 github:
   username: xxlabaza
 
-theme: jekyll-theme-midnight
+theme: jekyll-theme-modernist
 toc: true
 sass:
   style: compressed
@@ -22,8 +22,11 @@ markdown: kramdown
 highlighter: rouge
 kramdown:
   input: GFM
+  hard_wrap: false
+  syntax_highlighter: rouge
+  extensions: fenced_code_blocks
   syntax_highlighter_opts:
-    default_lang: swift
+    css_class: 'highlight'
 
 plugins:
   - jekyll-seo-tag
