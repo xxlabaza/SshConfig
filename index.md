@@ -196,9 +196,13 @@ let config = ssh.Config(
 ...
 ```
 
-More code samples and examples are available in the tests (especially in [UsageExample.swift](https://github.com/xxlabaza/SshConfig/blob/master/Tests/SshConfigTests/UsageExample.swift) file).
+More code samples and examples are available in the [website](https://xxlabaza.github.io/SshConfig) and in the tests (especially in [UsageExample.swift](https://github.com/xxlabaza/SshConfig/blob/master/Tests/SshConfigTests/UsageExample.swift) file).
 
 #### Parsing
+
+To parses a string into a collection of the hosts and their properties (without any **decoding**, just **raw** parsing):
+
+> **NOTE:** if you would like to parse and **decode** your config into an `ssh.Config` instance, see an appropriate section [below](#decoding).
 
 ```swift
 let content = """
@@ -218,6 +222,8 @@ assert(properties["port"] == ["2021"])
 ```
 
 #### Decoding
+
+To decode a string config into a `ssh.Config` instance:
 
 ```swift
 let content = """
@@ -252,6 +258,8 @@ assert(config.hosts[0].properties.port == 2021)
 
 #### Encoding
 
+To encode your existent `ssh.Config` instance to a string:
+
 ```swift
 let config = ssh.Config(
   ssh.Host("myserv",
@@ -285,6 +293,8 @@ Host myserv
 ```
 
 #### Resolving
+
+When you have an `ssh.Config`, I assume you would like to resolve it for different hosts by their names. You can do it like this:
 
 ```swift
 let config = ssh.Config(
@@ -435,6 +445,8 @@ assert(config.hosts[0].properties.port == 2021)
 ```
 
 ### Errors
+
+In the sections below, I describe the different `ssh.*Error`s which can occur during working with the library and examples of such errors.
 
 #### EmptyKeyToken
 
