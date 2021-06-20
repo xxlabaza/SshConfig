@@ -14,10 +14,16 @@ twitter:
 github:
   username: xxlabaza
 
-theme: jekyll-theme-modernist
+theme: jekyll-theme-midnight
 toc: true
 sass:
   style: compressed
+markdown: kramdown
+highlighter: rouge
+kramdown:
+  input: GFM
+  syntax_highlighter_opts:
+    default_lang: swift
 
 plugins:
   - jekyll-seo-tag
