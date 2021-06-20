@@ -163,12 +163,6 @@ import SshConfig
 pod 'SshConfig'
 ```
 
-And then run:
-
-```
-pod install
-```
-
 Eventually, your **Podfile** should look like this one:
 
 ```
@@ -183,6 +177,12 @@ target 'MyApp' do
 
   pod 'SshConfig'
 end
+```
+
+And then run:
+
+```
+pod install
 ```
 
 After installing the cocoapod into your project import SshConfig with:

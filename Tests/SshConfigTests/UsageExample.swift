@@ -53,14 +53,14 @@ final class UsageExample: XCTestCase {
       "~/.ssh/id_rsa"
     ])
 
-    let json = try config.toJsonString()
+    let json = try! config.toJsonString()
     XCTAssertFalse(json.isEmpty)
 
-    let decoded = try ssh.Config.from(json: json)
+    let decoded = try! ssh.Config.from(json: json)
     XCTAssertEqual(config, decoded)
     XCTAssertEqual(properties, decoded.resolve(for: "myserv"))
 
-    XCTAssertEqual(try config.toString(), """
+    XCTAssertEqual(try! config.toString(), """
     Host github.com gitlab.com
       IdentityFile ~/.ssh/id_ed25519
       User ""
@@ -184,7 +184,7 @@ final class UsageExample: XCTestCase {
     """
 
     let parser = ssh.ConfigParser()
-    let parsedConfig = try parser.parse(content)
+    let parsedConfig = try! parser.parse(content)
     assert(parsedConfig.count == 1)
 
     let (host, properties) = parsedConfig[0]
@@ -202,7 +202,7 @@ final class UsageExample: XCTestCase {
     )
 
     let encoder = ssh.ConfigEncoder()
-    let string = try encoder.encode(config)
+    let string = try! encoder.encode(config)
 
     assert(string == """
     Host myserv
@@ -219,7 +219,7 @@ final class UsageExample: XCTestCase {
     """
 
     let decoder = ssh.ConfigDecoder()
-    let config = try decoder.decode(from: content)
+    let config = try! decoder.decode(from: content)
 
     assert(config.hosts.count == 1)
     assert(config.hosts[0].alias == "myserv")
