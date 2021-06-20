@@ -105,7 +105,7 @@ let config = ssh.Config(
 ...
 ```
 
-More code samples and examples are available in the tests (especially in [UsageExample.swift](https://github.com/xxlabaza/SshConfig/blob/master/Tests/SshConfigTests/UsageExample.swift) file).
+More code samples and examples are available in the [website](https://xxlabaza.github.io/SshConfig) and in the tests (especially in [UsageExample.swift](https://github.com/xxlabaza/SshConfig/blob/master/Tests/SshConfigTests/UsageExample.swift) file).
 
 ## Installation
 
