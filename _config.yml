@@ -14,7 +14,6 @@ twitter:
 github:
   username: xxlabaza
 
-markdown: kramdown
 theme: jekyll-theme-modernist
 toc: true
 sass:
