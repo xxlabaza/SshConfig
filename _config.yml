@@ -1,5 +1,5 @@
-title: Swift SshConfig Lib Page
-tagline: Swift SshConfig API documentation
+title: Swift SSH Config library
+tagline: Swift SSH Config parser, decoding and encoding library
 description: >-
   An SSH config parser library for Swift with a fancy API
 
