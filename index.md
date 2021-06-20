@@ -95,12 +95,6 @@ import SshConfig
 pod 'SshConfig'
 ```
 
-And then run:
-
-```
-pod install
-```
-
 Eventually, your **Podfile** should look like this one:
 
 ```
@@ -115,6 +109,12 @@ target 'MyApp' do
 
   pod 'SshConfig'
 end
+```
+
+And then run:
+
+```
+pod install
 ```
 
 After installing the cocoapod into your project import SshConfig with:
@@ -208,7 +208,7 @@ Host myserv
 """
 
 let parser = ssh.ConfigParser()
-let parsedConfig = try parser.parse(content)
+let parsedConfig = try! parser.parse(content)
 assert(parsedConfig.count == 1)
 
 let (host, properties) = parsedConfig[0]
@@ -227,7 +227,7 @@ Host myserv
 """
 
 let decoder = ssh.ConfigDecoder()
-let config = try decoder.decode(from: content)
+let config = try! decoder.decode(from: content)
 
 assert(config.hosts.count == 1)
 assert(config.hosts[0].alias == "myserv")
@@ -261,7 +261,7 @@ let config = ssh.Config(
 )
 
 let encoder = ssh.ConfigEncoder()
-let string = try encoder.encode(config)
+let string = try! encoder.encode(config)
 
 assert(string == """
 Host myserv
