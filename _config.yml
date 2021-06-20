@@ -1,1 +1,29 @@
+title: Swift SshConfig Lib Page
+tagline: Swift SshConfig API documentation
+description: >-
+  An SSH config parser library for Swift with a fancy API
+
+url: https://xxlabaza.github.io/SshConfig
+email: xxlabaza@gmail.com
+
+author:
+  name: Artem Labazin
+  twitter: xxlabaza
+twitter:
+  username: xxlabaza
+github:
+  username: xxlabaza
+
+markdown: kramdown
 theme: jekyll-theme-modernist
+toc: true
+sass:
+  style: compressed
+
+plugins:
+  - jekyll-seo-tag
+
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - README.md
