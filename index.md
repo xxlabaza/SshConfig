@@ -51,7 +51,7 @@ Swift 5.1+
 [Swift Package Manager](https://swift.org/package-manager/) - **is the recommended installation method**. All you need is to add the following as a dependency to your `Package.swift` file:
 
 ```swift
-.package(url: "https://github.com/xxlabaza/SshConfig.git", from: "1.0.0"),
+.package(url: "https://github.com/xxlabaza/SshConfig.git", from: "1.0.1"),
 ```
 
 So, your `Package.swift` may look like below:
@@ -63,11 +63,17 @@ import PackageDescription
 
 let package = Package(
   name: "MyPackage",
+  platforms: [ // The SshConfig requires the versions below as a minimum.
+    .iOS(.v13),
+    .watchOS(.v6),
+    .tvOS(.v13),
+    .macOS(.v10_15),
+  ],
   products: [
     .library(name: "MyPackage", targets: ["MyPackage"]),
   ],
   dependencies: [
-    .package(url: "https://github.com/xxlabaza/SshConfig.git", from: "1.0.0"),
+    .package(url: "https://github.com/xxlabaza/SshConfig.git", from: "1.0.1"),
   ],
   targets: [
     .target(name: "MyPackage", dependencies: ["SshConfig"])
